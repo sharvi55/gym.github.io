@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Only Fit Gym</title>
+  <meta name="description" content="Only Fit Gym - Premium fitness center offering strength training, yoga, group classes, and cardio. Join today for a healthier you!">
+  <meta name="keywords" content="gym, fitness, strength, yoga, cardio, group training">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #ff7a5c, #ff3b3f, #ffb88c);
+      background-size: 200% 200%;
+      animation: bgWave 10s ease-in-out infinite;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgWave {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    header {
+      background: rgba(34, 34, 34, 0.85);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      animation: slideDown 1s ease;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      transition: all 0.3s ease;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffe6e7;
+    }
+
+    #menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: rgba(0, 0, 0, 0.5);
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      margin: 2rem auto;
+      max-width: 900px;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: #ff3b3f;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 5px 15px rgba(255, 59, 63, 0.4);
+    }
+
+    .btn:hover {
+      background: #e53237;
+      transform: scale(1.05);
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    :target::before {
+      content: '';
+      display: block;
+      height: 80px;
+      margin-top: -80px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .feature {
+      background: white;
+      flex: 1 1 250px;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature i {
+      font-size: 3rem;
+      color: #ff3b3f;
+      margin-bottom: 1rem;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    footer {
+      background: rgba(34, 34, 34, 0.85);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      backdrop-filter: blur(5px);
+      border-radius: 0 0 12px 12px;
+    }
+
+    @media (max-width: 768px) {
+      .features {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        width: 100%;
+        margin-top: 0.8rem;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        margin: 0.5rem 1rem;
+      }
+
+      #menu-toggle {
+        display: block;
+        color: white;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ONLY FIT GYM</h1>
+    <i id="menu-toggle" class="fas fa-bars" aria-label="Toggle Menu" role="button"></i>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Get Stronger. Get Fitter.</h2>
+      <p>Your journey to a healthier, stronger body starts here. Join Only Fit Gym today!</p>
+      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Join Now">Join Now</button>
+    </section>
+
+    <section id="about">
+      <h3>About Us</h3>
+      <p style="max-width: 700px; margin: auto; text-align: center;">
+        Only Fit Gym is dedicated to providing a motivating environment with top-notch equipment, expert trainers, and a friendly community. Whether you're a beginner or an athlete, we have the right programs to help you reach your fitness goals.
+      </p>
+    </section>
+
+    <section id="services">
+      <h3>Our Services</h3>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-dumbbell"></i>
+          <h4>Strength Training</h4>
+          <p>Personalized programs focused on building muscle and strength with professional guidance.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-running"></i>
+          <h4>Cardio Classes</h4>
+          <p>High-energy cardio workouts to improve endurance and burn calories.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-child"></i>
+          <h4>Group Training</h4>
+          <p>Engaging group sessions to keep you motivated and accountable.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-spa"></i>
+          <h4>Yoga & Relaxation</h4>
+          <p>Classes that enhance flexibility, balance, and mental clarity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3>Contact Us</h3>
+      <p style="text-align: center; max-width: 600px; margin: auto;">
+        Have questions? Ready to get started? Reach out to us:
+      </p>
+      <p style="text-align: center; font-weight: bold; margin-top: 1rem;">
+        Email: info@onlyfitgym.com<br />
+        Phone: 0756156873<br />
+        Address: 123 Fitness Ave, Healthy City
+      </p>
+      <form class="contact-form" onsubmit="return validateForm()" aria-label="Contact Form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Your Name" required />
+        
+        <label for="email">Your Email</label>
+        <input type="email" id="email" placeholder="Your Email" required />
+        
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Your Message" required></textarea>
+        
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Only Fit Gym. All rights reserved.
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      document.querySelector("nav").classList.toggle("active");
+    });
+
+    // Basic form validation
+    function validateForm() {
+      alert("Thank you for contacting us!");
+      return true;
+    }
+  </script>
+</body>
+</html>
